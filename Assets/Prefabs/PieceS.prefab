@@ -262,6 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6830938334637191035}
   - component: {fileID: -6208573827155873032}
+  - component: {fileID: 8356388871626606109}
   m_Layer: 0
   m_Name: PieceS
   m_TagString: Piece
@@ -300,6 +301,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f95ae8829b2704e8423385e976fd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceSpawnerRef: {fileID: 0}
+--- !u!114 &8356388871626606109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830938334637191032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5666a413d39e2a4eb599bf7b18493a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceSprite: {fileID: 21300000, guid: e07403e53703b134ab0032fa8a186298, type: 3}
 --- !u!1 &6830938335677927594
 GameObject:
   m_ObjectHideFlags: 0

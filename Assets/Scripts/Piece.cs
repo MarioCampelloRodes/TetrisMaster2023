@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class Piece : MonoBehaviour
 {
+    public PieceSpawner pieceSpawnerRef;
     //Última caída(bajada) de la pieza hace 0 segundos
-    float fillCounter = 1f, counterToDown;
+    float fillCounter = 0.5f, counterToDown;
 
     // Start is called before the first frame update
     void Start()
     {
         //Rellenamos el contador de tiempo para que baje automático
-        counterToDown = fillCounter;
+        counterToDown = fillCounter;    
+
+        //Rellenamos la referencia del PieceSpawner
+        pieceSpawnerRef = GameObject.Find("PieceSpawner").GetComponent<PieceSpawner>();
     }
 
     // Update is called once per frame
@@ -72,7 +76,8 @@ public class Piece : MonoBehaviour
                 //Revierto el movimiento hacia abajo sumando uno hacia arriba
                 this.transform.position += new Vector3(0, 1, 0);
                 //Si ya no pudiese bajar más, habría que detectar si es momento de borrar una fila
-                GridHelper.DeleteAllFullRows();
+                GridHelper.DeleteAllFullRows(pieceSpawnerRef.currentPiece);
+
                 //Hacemos que aparezca una pieza nueva, llamando al PieceSpawner a su método
                 FindObjectOfType<PieceSpawner>().SpawnNextPiece();//Busca un objeto de ese tipo para poder usar sus métodos y variables
                 //Deshabilitamos este script para que esta pieza no vuelva a moverse

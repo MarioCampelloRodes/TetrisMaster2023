@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9063214286154773988}
   - component: {fileID: -2828466387785007546}
+  - component: {fileID: 8662063936702470288}
   m_Layer: 0
   m_Name: PieceJ
   m_TagString: Piece
@@ -216,6 +217,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f95ae8829b2704e8423385e976fd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceSpawnerRef: {fileID: 0}
+--- !u!114 &8662063936702470288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063214286154773995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5666a413d39e2a4eb599bf7b18493a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceSprite: {fileID: 21300000, guid: 81080ed6e266e904ebddc1f2994a8c53, type: 3}
 --- !u!1 &9063214286162731358
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ public class GridHelper : MonoBehaviour
         {
             //La pieza está fuera de la zona de juego
             return false;
+
         }
     }
 
@@ -56,6 +57,9 @@ public class GridHelper : MonoBehaviour
             //Cambiaríamos las X del dibujo de arriba por una posición vacía (null)
             grid[x, y] = null;
         }
+        UIController.score += 1000;
+
+        AudioManager.amSharedInstance.PlaySFX(0);
     }
 
     //Método que baja una fila a partir de una fila concreta
@@ -108,7 +112,7 @@ public class GridHelper : MonoBehaviour
     }
 
     //Método para borrar varias o todas las filas de golpe
-    public static void DeleteAllFullRows()
+    public static void DeleteAllFullRows(GameObject currentPiece)
     {
         //Comprobamos para todas las filas, desde la de más abajo, hasta la de más arriba
         for (int y = 0; y < h; y++)
@@ -123,6 +127,14 @@ public class GridHelper : MonoBehaviour
                 //Volveríamos a la fila anterior, es decir, si ya hemos borrado una fila todas bajarán
                 //Pero no pasaremos a la siguiente, primero volvemos a comprobar la fila en la que estamos
                 y--;
+            }
+            else
+            {
+                //Para Game Over
+                if (currentPiece.transform.position.y >= 18f)
+                {
+                    GameOverManager.gomSharedInstance.StartCoroutine(GameOverManager.gomSharedInstance.GameOverCO());
+                }
             }
         }
 

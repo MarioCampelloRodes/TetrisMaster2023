@@ -10,6 +10,9 @@ public class PieceSpawner : MonoBehaviour
     //Variables para saber la pieza que tenemos y la siguiente que nos dará el juego
     public GameObject currentPiece, nextPiece;
 
+    //Referencia a la UIController
+    public UIController uiRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,7 @@ public class PieceSpawner : MonoBehaviour
         //Instantiate(objeto a instanciar, posición en la que se instancia, rotación con la que se instancia)
         //Desactivamos para que la siguiente pieza no se mueva su script
         nextPiece.GetComponent<Piece>().enabled = false;
+
         //Para cada bloque dentro de esa pieza
         foreach (SpriteRenderer child in this.gameObject.GetComponentsInChildren<SpriteRenderer>())
         {
@@ -72,5 +76,7 @@ public class PieceSpawner : MonoBehaviour
             child.color = currentColor;
         }
 
+        //Cambiamos el sprite de la interfaz de la siguiente pieza
+        uiRef.nextPiece.sprite = nextPiece.GetComponent<PieceSprite>().pieceSprite;
     }
 }

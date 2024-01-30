@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2516427833286938768}
   - component: {fileID: -5528747060256721346}
+  - component: {fileID: 4657963549867900996}
   m_Layer: 0
   m_Name: PieceL
   m_TagString: Piece
@@ -48,6 +49,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f95ae8829b2704e8423385e976fd3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieceSpawnerRef: {fileID: 0}
+--- !u!114 &4657963549867900996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516427833286938769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5666a413d39e2a4eb599bf7b18493a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pieceSprite: {fileID: 21300000, guid: 5f61fe36a3fd2e345ad87368cefe0952, type: 3}
 --- !u!1 &2516427833722943388
 GameObject:
   m_ObjectHideFlags: 0
