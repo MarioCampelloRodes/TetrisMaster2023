@@ -5,17 +5,23 @@ using UnityEngine;
 public class Piece : MonoBehaviour
 {
     //Última caída(bajada) de la pieza hace 0 segundos
-    float lastFall = 0.0f;
+    float fillCounter = 1f, counterToDown;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Rellenamos el contador de tiempo para que baje automático
+        counterToDown = fillCounter;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Si el contador de tiempo está lleno
+        if (counterToDown > 0)
+            //Le quitamos uno cada segundo
+            counterToDown -= 1 * Time.deltaTime;
+       
         //Movimiento horizontal de las piezas
         //Movimiento de la ficha a la izquierda
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -49,7 +55,7 @@ public class Piece : MonoBehaviour
             }
         }
         //Mover la pieza hacia abajo al pulsar la tecla o cuando haya pasado más de un segundo desde la última vez que se movió
-        else if (Input.GetKeyDown(KeyCode.DownArrow) || (Time.time - lastFall) > 1.0f)
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || counterToDown <= 0)
         {
             //Muevo la pieza hacia abajo una posición
             this.transform.position += new Vector3(0, -1, 0);
@@ -73,10 +79,8 @@ public class Piece : MonoBehaviour
                 this.enabled = false;
             }
             //Reiniciamos el contador de tiempo
-            lastFall = Time.time;
+            counterToDown = fillCounter;
         }
-        //Cuento en milisegundos cuanto ha pasado desde la última caída
-        lastFall += Time.deltaTime;
     }
 
     //Método para el movimiento horizontal
